@@ -1,0 +1,252 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+@font-face {
+  font-family: 'glasses';
+  src:  url('fonts/glasses.eot?w7zezm');
+  src:  url('fonts/glasses.eot?w7zezm#iefix') format('embedded-opentype'),
+    url('fonts/glasses.ttf?w7zezm') format('truetype'),
+    url('fonts/glasses.woff?w7zezm') format('woff'),
+    url('fonts/glasses.svg?w7zezm#glasses') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'glasses' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-sunglasses:before {
+  content: "\e900";
+}
+
+:root {
+--pink: rgb(242, 121, 165);
+--blue: rgb(51, 112, 191);
+--green: rgb(56, 165, 114);
+--yellow: rgb(216, 175, 49);
+--orange: rgb(242, 82, 46);
+--black: rgb(0, 0, 0);
+--white: rgb(255, 255, 255);
+
+--Font: 'Montserrat', sans-serif;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: var(--Font);
+  font-size: 30px;
+}
+
+.animation {
+  display: grid;
+  grid-template-areas: "title colors"
+                       "img  img"
+                       "balls  balls"
+                       "ring ring";
+
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 0.2fr 1fr 0.2fr 0.2fr;
+}
+
+.animation__txt {
+  grid-area: title;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.animation__txt p{
+  position: relative;
+  padding-right: 2px;
+  text-align: right;
+}
+
+.animation__colors {
+  grid-area: colors;
+}
+
+.list_colors{
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: 30px;
+  border: 1px solid transparent;
+  margin-left: 0;
+}
+
+.list_colors .list{
+  list-style: none;
+  margin-left: -28px;
+  font-weight: 700;
+
+  animation-name: rotateColors;
+  animation-duration: 5s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1.3s;
+}
+
+.blue {
+  color: var(--blue);
+}
+
+.green {
+  color: var(--green);;
+}
+
+.orange {
+  color: var(--orange););
+}
+
+.pink {
+  color: var(--pink);
+}
+
+.animation__image {
+  grid-area: img;
+  text-align: center;
+}
+.icon-sunglasses {
+  font-size: 400px;
+  color: var(--blue);
+  animation-name: glassColors;
+  animation-duration: 5s;
+  animation-direction: normal;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1.3s;
+}
+
+.balls {
+  grid-area: balls;
+  display: flex;
+  justify-content: center;
+}
+
+.ball {
+  width: 50px;
+  height: 50px;
+  margin: 0 20px;
+  border-radius: 50%;
+  animation: ballsColors 5s ease-in;
+  animation-delay: 1.3s;
+}
+
+.ball-blue {
+  background-color: var(--blue);
+  animation: ballsPosition 0.6s linear;
+}
+
+.ball-green {
+  background-color: var(--green);
+  animation: ballsPosition 0.6s ease;
+}
+
+.ball-orange {
+  background-color: var(--orange);
+  animation: ballsPosition 0.7s ease-in;
+}
+
+.ball-pink {
+  background-color: var(--pink);
+  animation: ballsPosition 0.5s ease-in-out;
+}
+
+.ring {
+  grid-area: ring;
+  display: flex;
+  justify-content: center;
+}
+
+.radius {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 5px solid rgba(0, 0, 0, 0.7);
+  position: relative;
+  left: -135px;
+  bottom: 85px;
+  opacity: 0;
+  animation: translateRing 5s linear;
+  animation-iteration-count: infinite;
+  animation-delay: 1.3s;
+}
+
+@keyframes rotateColors {
+  0%{transform: translateY(0);}
+  12.5%{transform: translateY(0);}
+  25%{transform: translateY(-38px);}
+  37.5%{transform: translateY(-38px);}
+  50%{transform: translateY(-73px);}
+  62.5%{transform: translateY(-73px);}
+  75%{transform: translateY(-110px);}
+  87.5%{transform: translateY(-110px);}
+  100%{transform: translateY(0);}
+}
+
+@keyframes glassColors {
+  0%{color: var(--blue);}
+  24%{color: var(--blue);}
+  25%{color: var(--green);}
+  49%{color: var(--green);}
+  50%{color: var(--orange);}
+  74%{color: var(--orange);}
+  75%{color: var(--pink);}
+  99%{color: var(--pink);}
+  100%{color: var(--blue);}
+}
+
+@keyframes ballsPosition {
+  from {
+    transform: translateY(-500px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes translateRing {
+  0%{
+    opacity: 1;
+    left: -135px;
+  }
+  24%{
+    left: -135px;
+  }
+  25%{
+    left: -45px;
+  }
+  49%{
+    left: -45px;
+  }
+  50%{
+    left: 45px;
+  }
+  74%{
+    left: 45px;
+  }
+  75%{
+    left: 135px;
+  }
+  99%{
+    left: 135px;
+  }
+  100%{
+    opacity: 1;
+    left: -135px;
+  }
+}
